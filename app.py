@@ -5,7 +5,6 @@ import joblib
 import pickle
 import seaborn as sns
 import plotly.express as px
-import mplcursors
 from sklearn.cluster import AgglomerativeClustering
 
 
