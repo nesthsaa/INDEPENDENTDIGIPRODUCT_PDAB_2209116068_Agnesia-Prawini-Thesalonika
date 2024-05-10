@@ -8,7 +8,6 @@ import plotly.express as px
 from sklearn.cluster import AgglomerativeClustering
 
 
-
 st.header("Gender Pay Gap Analysis")
 
 def load_data():
