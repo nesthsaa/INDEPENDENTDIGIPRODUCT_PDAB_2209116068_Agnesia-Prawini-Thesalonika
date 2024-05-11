@@ -8,6 +8,7 @@ import plotly.express as px
 from sklearn.cluster import AgglomerativeClustering
 
 
+
 st.header("Gender Pay Gap Analysis")
 
 def load_data():
@@ -72,33 +73,51 @@ def visualize_data(data):
 
     plt.tight_layout()
     st.pyplot(fig)
-    st.write('Histogram di atas adalah menunjukkan pola distribusi data setiap kolom numerik. Puncak histogram menunjukkan di mana sebagian besar nilai-nilai berada. Lebar histogram menunjukkan rentang nilai-nilai yang mungkin.')
+    st.markdown('''
+    <div style="text-align: justify;">
+    <p><strong>1. Pola Distribusi Data:</strong></p>
+    <p>Histogram di atas memberikan gambaran tentang pola distribusi data pada setiap kolom numerik. Distribusi data ini menggambarkan sebaran nilai-nilai di dalam setiap kolom dan memberikan wawasan tentang bagaimana data tersebar.</p>
+    
+    <p><strong>2. Puncak Histogram:</strong></p>
+    <p>Puncak histogram menunjukkan di mana sebagian besar nilai-nilai data berada. Puncak yang tinggi menunjukkan bahwa terdapat konsentrasi nilai-nilai di sekitar titik tersebut. Semakin tinggi puncaknya, semakin besar konsentrasi nilai-nilai di wilayah tersebut.</p>
+    
+    <p><strong>3. Lebar Histogram:</strong></p>
+    <p>Lebar histogram mencerminkan rentang nilai-nilai yang mungkin ada dalam kolom tersebut. Semakin lebar histogram, semakin besar rentang nilai-nilai yang tercakup dalam data. Lebar yang lebih besar menunjukkan variasi yang lebih besar dalam data, sedangkan lebar yang lebih kecil menunjukkan konsentrasi nilai-nilai di rentang nilai yang lebih sempit.</p>
+
+    <p>Dengan memahami pola distribusi data melalui histogram ini, kita dapat mengidentifikasi titik-titik penting seperti pusat konsentrasi nilai (puncak histogram) dan seberapa luas variasi nilai-nilai tersebut (lebar histogram). Informasi ini dapat membantu dalam analisis lebih lanjut dan pengambilan keputusan yang tepat berdasarkan karakteristik data yang diamati.</p>
+    </div>
+    ''', unsafe_allow_html=True)
 
 
 
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 def visualize_data_changes(data, selected_country):
     st.title(f"Data untuk Negara {selected_country} dari 2010-2021")
-    st.write("""
-    **Interpretasi:**
-    Visualisasi ini memperlihatkan perubahan nilai numerik di setiap kolom selama periode 2010-2021 untuk negara yang dipilih. Setiap garis pada grafik mewakili tren perubahan nilai dari satu kolom tertentu dari tahun ke tahun.
+    st.markdown("""
+    <div style="text-align: justify;">
+    <p><strong>Interpretasi:</strong></p>
+    <p>Visualisasi ini memperlihatkan perubahan nilai numerik di setiap kolom selama periode 2010-2021 untuk negara yang dipilih. Setiap garis pada grafik mewakili tren perubahan nilai dari satu kolom tertentu dari tahun ke tahun.</p>
     
-    **Insight:**
-    1. **GDP (PDB)**: Jika terdapat peningkatan yang signifikan dalam grafik GDP dari tahun ke tahun, ini menunjukkan pertumbuhan ekonomi yang kuat di negara tersebut. Sebaliknya, penurunan atau stagnasi bisa menjadi sinyal adanya masalah ekonomi yang perlu ditangani.
+    <p><strong>Insight:</strong></p>
+    <ol>
+    <li><strong>GDP (PDB):</strong> Jika terdapat peningkatan yang signifikan dalam grafik GDP dari tahun ke tahun, ini menunjukkan pertumbuhan ekonomi yang kuat di negara tersebut. Sebaliknya, penurunan atau stagnasi bisa menjadi sinyal adanya masalah ekonomi yang perlu ditangani.</li>
     
-    2. **Urban Population (Populasi Urban)**: Jika grafik menunjukkan peningkatan yang stabil dalam populasi urban, ini bisa mengindikasikan urbanisasi yang berkelanjutan di negara tersebut. Ini bisa berarti pertumbuhan kota-kota besar atau pergeseran penduduk dari daerah pedesaan ke perkotaan.
+    <li><strong>Urban Population (Populasi Urban):</strong> Jika grafik menunjukkan peningkatan yang stabil dalam populasi urban, ini bisa mengindikasikan urbanisasi yang berkelanjutan di negara tersebut. Ini bisa berarti pertumbuhan kota-kota besar atau pergeseran penduduk dari daerah pedesaan ke perkotaan.</li>
     
-    3. **Indeks Kesenjangan Gaji (Misalnya: di bidang Construction)**: Jika terjadi penurunan dalam indeks kesenjangan dari tahun ke tahun, ini bisa menunjukkan upaya pemerintah atau kebijakan yang berhasil mengurangi kesenjangan ekonomi di negara tersebut. Sebaliknya, peningkatan yang signifikan mungkin menandakan ketidaksetaraan yang semakin memburuk.
+    <li><strong>Indeks Kesenjangan Gaji (Misalnya: di bidang Construction):</strong> Jika terjadi penurunan dalam indeks kesenjangan dari tahun ke tahun, ini bisa menunjukkan upaya pemerintah atau kebijakan yang berhasil mengurangi kesenjangan ekonomi di negara tersebut. Sebaliknya, peningkatan yang signifikan mungkin menandakan ketidaksetaraan yang semakin memburuk.</li>
+    </ol>
     
-    **Actionable Insight:**
-    1. **Ekonomi**: Jika terjadi penurunan atau stagnasi dalam GDP, pemerintah dapat mempertimbangkan kebijakan stimulus ekonomi atau reformasi struktural untuk mendorong pertumbuhan.
+    <p><strong>Actionable Insight:</strong></p>
+    <ol>
+    <li><strong>Ekonomi:</strong> Jika terjadi penurunan atau stagnasi dalam GDP, pemerintah dapat mempertimbangkan kebijakan stimulus ekonomi atau reformasi struktural untuk mendorong pertumbuhan.</li>
     
-    2. **Urbanisasi**: Jika populasi urban terus meningkat, perlu dipertimbangkan infrastruktur dan layanan perkotaan yang memadai untuk menangani pertumbuhan tersebut, seperti transportasi publik yang efisien, perumahan terjangkau, dan pelayanan kesehatan yang memadai.
+    <li><strong>Urbanisasi:</strong> Jika populasi urban terus meningkat, perlu dipertimbangkan infrastruktur dan layanan perkotaan yang memadai untuk menangani pertumbuhan tersebut, seperti transportasi publik yang efisien, perumahan terjangkau, dan pelayanan kesehatan yang memadai.</li>
     
-    3. **Indeks Kesenjangan Gaji (Misalnya: di bidang Construction)**: Jika terjadi peningkatan dalam indeks kesenjangan, pemerintah dapat mempertimbangkan kebijakan redistribusi pendapatan, pendidikan yang lebih merata, atau pelatihan keterampilan untuk memperbaiki ketidaksetaraan ekonomi dan sosial.
-    """)
+    <li><strong>Indeks Kesenjangan Gaji (Misalnya: di bidang Construction):</strong> Jika terjadi peningkatan dalam indeks kesenjangan, pemerintah dapat mempertimbangkan kebijakan redistribusi pendapatan, pendidikan yang lebih merata, atau pelatihan keterampilan untuk memperbaiki ketidaksetaraan ekonomi dan sosial.</li>
+    </ol>
+    </div>
+    """, unsafe_allow_html=True)
+
 
   # Filter data untuk negara yang dipilih
     country_data = data[(data['Country'] == selected_country) & (data['Year'] <= 2021)]  # Saring data hingga tahun 2021
@@ -156,11 +175,95 @@ def clustering_visualization(data):
 
     # Show the map
     st.plotly_chart(fig)
+
+
+def ciri_ciri_cluster(data):
+    for cluster_id in range(3):  # assuming there are 3 clusters
+        with st.expander(f"Ciri-Ciri Cluster {cluster_id}"):
+            st.markdown(f"Ciri-Ciri Cluster {cluster_id}:")
+            if cluster_id == 0:
+                st.markdown("""
+                - GDP rata-rata sekitar 36%
+                - Urban Population sekitar 80%
+                - Tingkat kesenjangan di bidang Industry sekitar 14%
+                - Tingkat kesenjangan di bidang Business sekitar 17%
+                - Tingkat kesenjangan di bidang Mining sekitar 10%
+                - Tingkat kesenjangan di bidang Manufacturing sekitar 16%
+                - Tingkat kesenjangan di bidang Electricity Supply sekitar 13%
+                - Tingkat kesenjangan di bidang Water Supply sekitar 3%
+                - Tingkat kesenjangan di bidang Construction sekitar 3%
+                - Tingkat kesenjangan di bidang Retail Trade sekitar 20%
+                - Tingkat kesenjangan di bidang Transportation sekitar 8%
+                - Tingkat kesenjangan di bidang Accomodation Supply sekitar 9%
+                - Tingkat kesenjangan di bidang Information sekitar 16%
+                - Tingkat kesenjangan di bidang Financial sekitar 25.70%
+                - Tingkat kesenjangan di bidang Real Estate sekitar 14%
+                - Tingkat kesenjangan di bidang Professional Scientific sekitar 22%
+                - Tingkat kesenjangan di bidang Administrative sekitar 10% 
+                - Tingkat kesenjangan di bidang Public Administration sekitar 10%
+                - Tingkat kesenjangan di bidang Education sekitar 10.94%
+                - Tingkat kesenjangan di bidang Human Health sekitar 17%
+                - Tingkat kesenjangan di bidang Arts sekitar 18%
+                - Tingkat kesenjangan di bidang lainnya sekitar 17%
+                """)
+            elif cluster_id == 1:
+                st.markdown("""
+                - GDP rata-rata sekitar 12.120%)
+                - Urban Population sekitar 60.64%
+                - Tingkat kesenjangan di bidang Industry sekitar 8.95%
+                - Tingkat kesenjangan di bidang Business sekitar 12.90%
+                - Tingkat kesenjangan di bidang Mining sekitar 4.11%
+                - Tingkat kesenjangan di bidang Manufacturing sekitar 21.05%
+                - Tingkat kesenjangan di bidang Electricity Supply sekitar 4.57%
+                - Tingkat kesenjangan di bidang Water Supply sekitar -4.28%
+                - Tingkat kesenjangan di bidang Construction sekitar -15.79%
+                - Tingkat kesenjangan di bidang Retail Trade sekitar 17.46%
+                - Tingkat kesenjangan di bidang Transportation sekitar -5.38%
+                - Tingkat kesenjangan di bidang Accommodation Supply sekitar 11.00%
+                - Tingkat kesenjangan di bidang Information sekitar 17.75%
+                - Tingkat kesenjangan di bidang Financial sekitar 25.19%
+                - Tingkat kesenjangan di bidang Real Estate sekitar 7.10%
+                - Tingkat kesenjangan di bidang Professional Scientific sekitar 11.47%
+                - Tingkat kesenjangan di bidang Administrative sekitar -3.15%
+                - Tingkat kesenjangan di bidang Public Administration sekitar 8.99%
+                - Tingkat kesenjangan di bidang Education sekitar 10.82%
+                - Tingkat kesenjangan di bidang Human Health sekitar 20.12%
+                - Tingkat kesenjangan di bidang Arts sekitar 18.47%
+                - Tingkat kesenjangan di bidang lainnya sekitar 19.53%
+                """)
+            elif cluster_id == 2:
+                st.markdown("""
+                - GDP rata-rata sekitar 13,177.92
+                - Urban Population sekitar 67.03%
+                - Tingkat kesenjangan di bidang Industry sekitar 18.76%
+                - Tingkat kesenjangan di bidang Business sekitar 18.54%
+                - Tingkat kesenjangan di bidang Mining sekitar 13.15%
+                - Tingkat kesenjangan di bidang Manufacturing sekitar 25.26%
+                - Tingkat kesenjangan di bidang Electricity Supply sekitar 14.24%
+                - Tingkat kesenjangan di bidang Water Supply sekitar 6.83%
+                - Tingkat kesenjangan di bidang Construction sekitar 4.41%
+                - Tingkat kesenjangan di bidang Retail Trade sekitar 25.16%
+                - Tingkat kesenjangan di bidang Transportation sekitar 2.77%
+                - Tingkat kesenjangan di bidang Accommodation Supply sekitar 13.86%
+                - Tingkat kesenjangan di bidang Information sekitar 26.97%
+                - Tingkat kesenjangan di bidang Financial sekitar 36.51%
+                - Tingkat kesenjangan di bidang Real Estate sekitar 15.18%
+                - Tingkat kesenjangan di bidang Professional Scientific sekitar 18.60%
+                - Tingkat kesenjangan di bidang Administrative sekitar 11.73%
+                - Tingkat kesenjangan di bidang Public Administration sekitar 8.23%
+                - Tingkat kesenjangan di bidang Education sekitar 13.61%
+                - Tingkat kesenjangan di bidang Human Health sekitar 22.92%
+                - Tingkat kesenjangan di bidang Arts sekitar 16.67%
+                - Tingkat kesenjangan di bidang lainnya sekitar 13.36%
+                """)
+
+
     st.write('''
-            Cluster 0 diisi oleh negara yang memiliki nilai GDP dan Urban_population yang tinggi serta tingkat kesenjangan gaji di bidang Professional_scientific.\n
-            Cluster 1 diisi oleh negara yang memiliki tingkat kesenjangan gaji yang paling rendah di antara cluster lainnya yaitu di bidang industry, business, mining, electricity_supply, water_supply, construction, retail trade, transportation, financial, real estate, professional_scientific, administrative, dan education.\n
-            Cluster 2 diisi oleh negara yang memiliki tingkat kesenjangan gaji yang paling tinggi di bidang industry, business, mining, electricity_supply, water_supply, construction, retail trade, accommodation, information, financial, real estate, administrative, education, dan human_health
+            Cluster 0 mewakili negara atau wilayah dengan nilai GDP dan Urban_population yang tinggi serta tingkat kesenjangan gaji di bidang Professional_scientific.\n
+            Cluster 1 mewakili negara atau wilayah dengan tingkat kesenjangan gaji yang paling rendah di antara cluster lainnya yaitu pada bidang industry, business, mining, electricity_supply, water_supply, construction, retail trade, transportation, financial, real estate, professional_scientific, administrative, dan education.\n
+            Cluster 2 mewakili negara atau wilayah dengan tingkat kesenjangan gaji yang paling tinggi di bidang industry, business, mining, electricity_supply, water_supply, construction, retail trade, accommodation, information, financial, real estate, administrative, education, dan human_health
 ''')
+
 
 
     
@@ -178,6 +281,8 @@ def main():
         visualize_data_changes(data, selected_country)
     elif selected_page == "Clustering":
         clustering_visualization(data)
+        ciri_ciri_cluster(data)
+
 
 if __name__ == "__main__":
     main()
